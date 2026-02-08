@@ -1,0 +1,562 @@
+<!doctype html>
+<html lang="bg">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#1F6BFF" />
+  <meta name="color-scheme" content="light" />
+  <meta name="format-detection" content="telephone=no" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="default" />
+  <meta name="mobile-web-app-capable" content="yes" />
+  <meta name="msapplication-TileColor" content="#1F6BFF" />
+  <meta name="description" content="BUILDO – Контрол. Сигурност. Качество. Ремонти до ключ в София. Оглед → Оферта → Реализация." />
+  <title>BUILDO – Контрол. Сигурност. Качество.</title>
+  <!-- Favicons / App icons -->
+  <link rel="icon" type="image/png" sizes="32x32" href="https://res.cloudinary.com/dbtskxvx4/image/upload/v1770588823/New_Projectsdfds_dxztd2.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="https://res.cloudinary.com/dbtskxvx4/image/upload/v1770588823/New_Projectsdfds_dxztd2.png">
+  <link rel="apple-touch-icon" sizes="180x180" href="https://res.cloudinary.com/dbtskxvx4/image/upload/v1770588823/New_Projectsdfds_dxztd2.png">
+  <link rel="shortcut icon" href="https://res.cloudinary.com/dbtskxvx4/image/upload/v1770588823/New_Projectsdfds_dxztd2.png">
+
+  <!-- Performance: speed up CDN connects -->
+  <link rel="preconnect" href="https://cdn.jsdelivr.net" crossorigin>
+  <link rel="preconnect" href="https://unpkg.com" crossorigin>
+  <link rel="preconnect" href="https://images.unsplash.com" crossorigin>
+
+  <!-- Bootstrap (free) -->
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
+
+  <!-- Icons (free) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+  <!-- AOS animations (free) -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <style>
+    :root{
+      --black:#1E1E1E;
+      --blue:#1F6BFF;
+      --grey:#B9B9B9;
+      --offwhite:#F5F5F5;
+      --white:#FFFFFF;
+      --radius:18px;
+      --shadow:0 12px 40px rgba(0,0,0,.10);
+    }
+    html{scroll-behavior:smooth}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,Inter,Arial,sans-serif;background:var(--offwhite);color:var(--black)}
+
+    /* Brand */
+    .brand-mark{width:40px;height:40px;border-radius:14px;background:linear-gradient(135deg,var(--black) 0 50%,var(--blue) 50% 100%);box-shadow:var(--shadow);position:relative}
+    .brand-mark:after{content:"";position:absolute;inset:7px;border-radius:12px;border:2px solid rgba(255,255,255,.22)}
+    .brand-name{letter-spacing:.6px;font-weight:900}
+
+    /* Navbar */
+    .navbar{backdrop-filter: blur(10px)}
+    .nav-link{font-weight:700;color:rgba(30,30,30,.82)!important}
+    .nav-link:hover{color:var(--black)!important}
+
+    /* Buttons */
+    .btn-buildo{background:var(--blue);border:none;font-weight:800}
+    .btn-buildo:hover{filter:brightness(.95)}
+    .btn-outline-buildo{border-color:rgba(30,30,30,.18);font-weight:800}
+
+    /* Sections */
+    .section-pad{padding:72px 0}
+
+    /* Parallax blocks */
+    .parallax{
+      position:relative;
+      background-attachment: fixed;
+      background-position: center;
+      background-size: cover;
+      background-repeat:no-repeat;
+      overflow:hidden;
+      border-radius:24px;
+      box-shadow: var(--shadow);
+      border:1px solid rgba(30,30,30,.08);
+    }
+    /* fallback for mobile (iOS ignores fixed) */
+    @media (max-width: 991px){
+      .parallax{background-attachment: scroll}
+    }
+    /* Respect reduced motion (accessibility / iOS performance) */
+    @media (prefers-reduced-motion: reduce){
+      html{scroll-behavior:auto}
+      *{animation-duration:0.001ms !important;animation-iteration-count:1 !important;transition-duration:0.001ms !important}
+    }
+    .parallax:before{
+      content:"";
+      position:absolute;inset:0;
+      background:linear-gradient(90deg, rgba(30,30,30,.82) 0%, rgba(30,30,30,.55) 50%, rgba(30,30,30,.22) 100%);
+    }
+    .parallax .content{position:relative;z-index:2}
+
+    /* Cards */
+    .glass{
+      background: rgba(255,255,255,.78);
+      border: 1px solid rgba(255,255,255,.35);
+      box-shadow: 0 12px 40px rgba(0,0,0,.12);
+      backdrop-filter: blur(10px);
+      border-radius: 20px;
+    }
+    .soft-card{background:var(--white);border:1px solid rgba(30,30,30,.08);border-radius:20px;box-shadow: 0 10px 30px rgba(0,0,0,.06)}
+
+    /* Pills */
+    .pill{display:inline-flex;align-items:center;gap:.5rem;padding:.55rem .8rem;border-radius:999px;background:rgba(31,107,255,.08);border:1px solid rgba(31,107,255,.16);font-weight:800;color:rgba(31,107,255,.95)}
+
+    /* Flow */
+    .flow-step{padding:18px;border-radius:18px;background:rgba(245,245,245,.8);border:1px solid rgba(30,30,30,.08)}
+    .num{width:34px;height:34px;border-radius:12px;background:rgba(31,107,255,.12);border:1px solid rgba(31,107,255,.20);display:inline-flex;align-items:center;justify-content:center;font-weight:900;color:rgba(31,107,255,.95)}
+
+    /* Footer */
+    .footer{color:rgba(30,30,30,.72)}
+    .footer a{color:rgba(31,107,255,.95);font-weight:800;text-decoration:none}
+    .footer a:hover{text-decoration:underline}
+
+    /* Small helpers */
+    .muted{color:rgba(30,30,30,.70)}
+    .tiny{font-size:.85rem;color:rgba(30,30,30,.62)}
+
+    /* Keep sections edge-to-edge but content aligned */
+    .container{max-width:1140px}
+  </style>
+</head>
+<body>
+  <!-- NAV -->
+  <nav class="navbar navbar-expand-lg sticky-top" style="background:rgba(245,245,245,.88); border-bottom:1px solid rgba(30,30,30,.08);">
+    <div class="container py-2">
+      <a class="navbar-brand d-flex align-items-center gap-2" href="#top" aria-label="BUILDO начало">
+        <img src="https://res.cloudinary.com/dbtskxvx4/image/upload/v1770588823/New_Projectsdfds_dxztd2.png" alt="BUILDO лого" style="width:40px;height:40px;object-fit:contain" />
+        <span class="brand-name">BUILDO</span>
+      </a>
+
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#nav" aria-controls="nav" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="nav">
+        <ul class="navbar-nav ms-auto align-items-lg-center gap-lg-2">
+          <li class="nav-item"><a class="nav-link" href="#process">Процес</a></li>
+          <li class="nav-item"><a class="nav-link" href="#why">Защо BUILDO</a></li>
+          <li class="nav-item"><a class="nav-link" href="#faq">Въпроси</a></li>
+          <li class="nav-item ms-lg-2"><a class="btn btn-buildo text-white rounded-pill px-4" href="#contact"><i class="bi bi-calendar2-check me-2"></i>Запази оглед</a></li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <main id="top" class="container">
+    <!-- HERO / PARALLAX -->
+    <section class="section-pad">
+      <div class="parallax p-4 p-lg-5" style="background-image:url('https://images.unsplash.com/photo-1503387762-592deb58ef4e?auto=format&fit=crop&w=2400&q=70');">
+        <div class="content">
+          <div class="row g-4 align-items-stretch">
+            <div class="col-lg-7" data-aos="fade-up">
+              <div class="glass p-4 p-lg-5">
+                <div class="pill mb-3"><i class="bi bi-shield-check"></i>Контрол. Сигурност. Качество.</div>
+                <h1 class="display-5 fw-bold lh-sm mb-3">Ремонти до ключ в София – без изненади.</h1>
+                <p class="lead muted mb-4">Крайна цена се дава <b>само след оглед</b> и точни мерки. Работим по готов проект или без проект – и в двата случая процесът е ясен, а контролът е на всеки етап.</p>
+
+                <div class="d-flex flex-wrap gap-2 mb-4">
+                  <span class="badge text-bg-light border rounded-pill px-3 py-2"><i class="bi bi-rulers me-2"></i>Задължителен оглед</span>
+                  <span class="badge text-bg-light border rounded-pill px-3 py-2"><i class="bi bi-file-earmark-text me-2"></i>Оферта след мерки</span>
+                  <span class="badge text-bg-light border rounded-pill px-3 py-2"><i class="bi bi-diagram-3 me-2"></i>Проект / Без проект</span>
+                  <span class="badge text-bg-light border rounded-pill px-3 py-2"><i class="bi bi-check2-circle me-2"></i>Контрол на качество</span>
+                </div>
+
+                <div class="d-flex flex-wrap gap-2 align-items-center">
+                  <a class="btn btn-buildo text-white rounded-pill px-4" href="#contact"><i class="bi bi-chat-dots me-2"></i>Запази оглед</a>
+                  <a class="btn btn-outline-buildo rounded-pill px-4" href="#process"><i class="bi bi-arrow-down me-2"></i>Виж процеса</a>
+                  <span class="badge text-bg-dark rounded-pill px-3 py-2"><i class="bi bi-geo-alt me-2"></i>София</span>
+                </div>
+
+                <p class="tiny mt-3 mb-0">*Ние не даваме крайни цени по телефона. Първо оглед → после оферта. Така няма изненади.</p>
+              </div>
+            </div>
+
+            <div class="col-lg-5" data-aos="fade-up" data-aos-delay="80">
+              <div class="glass p-4 p-lg-4 h-100">
+                <h2 class="h5 fw-bold mb-3">Бърз преглед</h2>
+                <div class="d-grid gap-3">
+                  <div class="flow-step">
+                    <div class="d-flex gap-3">
+                      <div class="num">1</div>
+                      <div>
+                        <div class="fw-bold">Запитване</div>
+                        <div class="tiny">Локация, кв.м (ориентировъчно), етап на имота, проект.</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flow-step">
+                    <div class="d-flex gap-3">
+                      <div class="num">2</div>
+                      <div>
+                        <div class="fw-bold">Оглед</div>
+                        <div class="tiny">Точни мерки + всички детайли за екипите.</div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="flow-step">
+                    <div class="d-flex gap-3">
+                      <div class="num">3</div>
+                      <div>
+                        <div class="fw-bold">Оферта</div>
+                        <div class="tiny">Крайна цена след обработка и планиране.</div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+
+                <hr class="my-4" />
+                <div class="d-flex align-items-start gap-3">
+                  <i class="bi bi-info-circle text-primary fs-5" aria-hidden="true"></i>
+                  <div>
+                    <div class="fw-bold">Проект / Без проект</div>
+                    <div class="tiny">При готов проект офертата е по-точна. Без проект – решенията се планират според огледа.</div>
+                  </div>
+                </div>
+
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- WHY -->
+    <section id="why" class="section-pad pt-0">
+      <div class="row align-items-end mb-4">
+        <div class="col-lg-7" data-aos="fade-up">
+          <h2 class="fw-bold mb-2">Защо BUILDO</h2>
+          <p class="muted mb-0">BUILDO е компания за ремонти до ключ, ориентирана към <b>контрол, предвидимост и качество</b>. Нашето предимство е, че не започваме „на око“ и не обещаваме цена без реални данни. Работим с оглед, точни мерки и планиране по етапи, за да получиш завършен резултат без стрес.</p>
+          <div class="mt-3 tiny">
+            <div class="d-flex flex-wrap gap-2">
+              <span class="badge text-bg-light border rounded-pill px-3 py-2"><i class="bi bi-cash-coin me-2"></i>Конкурентна оферта след оглед</span>
+              <span class="badge text-bg-light border rounded-pill px-3 py-2"><i class="bi bi-bullseye me-2"></i>Внимание към детайла</span>
+              <span class="badge text-bg-light border rounded-pill px-3 py-2"><i class="bi bi-tools me-2"></i>Работа с машини и най-добри практики</span>
+              <span class="badge text-bg-light border rounded-pill px-3 py-2"><i class="bi bi-heart-pulse me-2"></i>Доверие и грижа за клиента</span>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-lg-4" data-aos="fade-up">
+          <div class="soft-card p-4 h-100">
+            <div class="d-flex align-items-center gap-3 mb-2">
+              <span class="num"><i class="bi bi-clipboard-check"></i></span>
+              <h3 class="h5 fw-bold mb-0">Контрол</h3>
+            </div>
+            <p class="muted mb-0">Планираме по етапи и работим по чеклист. Това значи по-малко импровизация и повече контрол върху срокове, последователност и качество на изпълнение.</p>
+          </div>
+        </div>
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="60">
+          <div class="soft-card p-4 h-100">
+            <div class="d-flex align-items-center gap-3 mb-2">
+              <span class="num"><i class="bi bi-shield-lock"></i></span>
+              <h3 class="h5 fw-bold mb-0">Сигурност</h3>
+            </div>
+            <p class="muted mb-0">Даваме крайна оферта след оглед и точни мерки. Така избягваме типичните „изненади“ по време на ремонта и клиентът знае какво да очаква.</p>
+          </div>
+        </div>
+        <div class="col-lg-4" data-aos="fade-up" data-aos-delay="120">
+          <div class="soft-card p-4 h-100">
+            <div class="d-flex align-items-center gap-3 mb-2">
+              <span class="num"><i class="bi bi-gem"></i></span>
+              <h3 class="h5 fw-bold mb-0">Качество</h3>
+            </div>
+            <p class="muted mb-0">Държим на детайла – прави линии, чисти ръбове, прецизни фуги и завършен вид. Използваме машини и утвърдени практики, защото качеството трябва да се вижда.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PARALLAX STRIP (accent) -->
+    <section class="pb-0" aria-label="Parallax акцент">
+      <div class="parallax p-4 p-lg-5" style="background-image:url('https://images.unsplash.com/photo-1523413651479-597eb2da0ad6?auto=format&fit=crop&w=2400&q=70');">
+        <div class="content">
+          <div class="row g-4 align-items-center">
+            <div class="col-lg-7" data-aos="fade-up">
+              <h2 class="fw-bold text-white mb-2">Без оглед няма крайна цена.</h2>
+              <p class="text-white-50 mb-0">Точните мерки и реалното състояние на място са единственият професионален начин да дадем оферта без изненади.</p>
+            </div>
+            <div class="col-lg-5 text-lg-end" data-aos="fade-up" data-aos-delay="80">
+              <a class="btn btn-buildo text-white rounded-pill px-4" href="#contact"><i class="bi bi-calendar2-check me-2"></i>Запази оглед</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- PROCESS -->
+    <section id="process" class="section-pad">
+      <div class="row align-items-end mb-4">
+        <div class="col-lg-8" data-aos="fade-up">
+          <h2 class="fw-bold mb-2">Процес на работа</h2>
+          <p class="muted mb-0">Преди да говорим за крайна цена, правим оглед и взимаме всичко необходимо за екипите. След това изготвяме офертата и се свързваме с клиента.</p>
+        </div>
+      </div>
+
+      <div class="row g-3">
+        <div class="col-lg" data-aos="fade-up">
+          <div class="flow-step h-100">
+            <div class="d-flex gap-3">
+              <div class="num">1</div>
+              <div>
+                <div class="fw-bold">Запитване</div>
+                <div class="tiny">Локация, ориентировъчни кв.м, етап, проект.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg" data-aos="fade-up" data-aos-delay="40">
+          <div class="flow-step h-100">
+            <div class="d-flex gap-3">
+              <div class="num">2</div>
+              <div>
+                <div class="fw-bold">Оглед на място</div>
+                <div class="tiny">Точни мерки, проверки, детайли за майсторите.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg" data-aos="fade-up" data-aos-delay="80">
+          <div class="flow-step h-100">
+            <div class="d-flex gap-3">
+              <div class="num">3</div>
+              <div>
+                <div class="fw-bold">Проект / Без проект</div>
+                <div class="tiny">Два сценария, различна логика на оферта.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg" data-aos="fade-up" data-aos-delay="120">
+          <div class="flow-step h-100">
+            <div class="d-flex gap-3">
+              <div class="num">4</div>
+              <div>
+                <div class="fw-bold">Изготвяне на оферта</div>
+                <div class="tiny">Обработка + съгласуване + крайна цена.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="col-lg" data-aos="fade-up" data-aos-delay="160">
+          <div class="flow-step h-100">
+            <div class="d-flex gap-3">
+              <div class="num">5</div>
+              <div>
+                <div class="fw-bold">Свързваме се с клиента</div>
+                <div class="tiny">Представяне на офертата и следващи стъпки.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-lg-9" data-aos="fade-up">
+          <div class="soft-card p-4">
+            <div class="d-flex align-items-start gap-3">
+              <span class="num"><i class="bi bi-exclamation-circle"></i></span>
+              <div>
+                <div class="fw-bold">Важно</div>
+                <div class="muted">Крайна цена се дава само след оглед и точни мерки. Това пази клиента от „изненади“ и пази качеството на изпълнение.</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ + CONTACT -->
+    <section id="faq" class="section-pad pt-0">
+      <div class="row g-3">
+        <div class="col-lg-7" data-aos="fade-up">
+          <h2 class="fw-bold mb-3">Често задавани въпроси</h2>
+
+          <div class="accordion" id="faqAcc">
+            <div class="accordion-item rounded-4 overflow-hidden border mb-2">
+              <h2 class="accordion-header">
+                <button class="accordion-button fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#q1">
+                  Защо не давате крайна цена по телефона?
+                </button>
+              </h2>
+              <div id="q1" class="accordion-collapse collapse show" data-bs-parent="#faqAcc">
+                <div class="accordion-body muted">
+                  Защото ремонтът зависи от реални мерки, състояние, детайли и рискове на място. Крайна цена даваме след оглед и събрани данни, за да няма изненади.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item rounded-4 overflow-hidden border mb-2">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#q2">
+                  Какво получавам след огледа?
+                </button>
+              </h2>
+              <div id="q2" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+                <div class="accordion-body muted">
+                  След огледа обработваме мерките и детайлите, съгласуваме с екипите и подготвяме оферта. Свързваме се с вас, за да я представим и да уточним срокове и следващи стъпки.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item rounded-4 overflow-hidden border mb-2">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#q3">
+                  Има ли разлика ако имам готов проект?
+                </button>
+              </h2>
+              <div id="q3" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+                <div class="accordion-body muted">
+                  Да. При готов проект има ясни решения и материали, което прави офертата по-точна и оптимизирана. Без проект офертата се формира на база оглед и избрани решения.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item rounded-4 overflow-hidden border mb-2">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#q4">
+                  Как гарантирате качеството?
+                </button>
+              </h2>
+              <div id="q4" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+                <div class="accordion-body muted">
+                  Работим по етапи и проверки. Ползваме машини и утвърдени практики, а критичните детайли се контролират (нива, прави линии, фуги, завършеност). Целта е резултатът да е видим и устойчив.
+                </div>
+              </div>
+            </div>
+
+            <div class="accordion-item rounded-4 overflow-hidden border mb-2">
+              <h2 class="accordion-header">
+                <button class="accordion-button collapsed fw-bold" type="button" data-bs-toggle="collapse" data-bs-target="#q5">
+                  Мога ли да променям неща по време на ремонта?
+                </button>
+              </h2>
+              <div id="q5" class="accordion-collapse collapse" data-bs-parent="#faqAcc">
+                <div class="accordion-body muted">
+                  Възможно е, но промени в обхвата/материалите влияят на срок и цена. Затова ги уточняваме писмено и се съгласуват преди изпълнение, за да запазим контрол и предвидимост.
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="col-lg-5" data-aos="fade-up" data-aos-delay="80">
+          <div class="soft-card p-4" id="contact">
+            <h2 class="h4 fw-bold mb-2">Запази оглед</h2>
+            <p class="muted mb-3">Остави данни и кратка информация. Ще се свържем за оглед. Крайна оферта се изготвя след оглед и точни мерки.</p>
+
+            <!-- Mailto form (no backend). Note: opens user's email app -->
+            <form id="leadForm" action="https://formspree.io/f/YOUR_FORMSPREE_ID" method="POST">
+              <div class="mb-2">
+                <label class="form-label fw-bold">Име</label>
+                <input class="form-control form-control-lg rounded-4" name="Име" placeholder="Вашето име" required autocomplete="name">
+              </div>
+              <div class="mb-2">
+                <label class="form-label fw-bold">Телефон</label>
+                <input class="form-control form-control-lg rounded-4" name="Телефон" placeholder="+359..." required type="tel" inputmode="tel" autocomplete="tel">
+              </div>
+              <div class="row g-2">
+                <div class="col-6">
+                  <label class="form-label fw-bold">Кв.м (ориент.)</label>
+                  <input class="form-control rounded-4" name="Кв.м" placeholder="напр. 78" inputmode="numeric">
+                </div>
+                <div class="col-6">
+                  <label class="form-label fw-bold">Готов проект?</label>
+                  <input class="form-control rounded-4" name="Проект" placeholder="Да / Не">
+                </div>
+              </div>
+              <div class="mt-2">
+                <label class="form-label fw-bold">Съобщение</label>
+                <textarea class="form-control rounded-4" name="Съобщение" rows="4" placeholder="Квартал, етап на имота (тухла/шпакловка), срокове, др."></textarea>
+              </div>
+
+              <div class="d-grid gap-2 mt-3">
+                <button class="btn btn-buildo text-white btn-lg rounded-pill" type="submit" id="leadBtn"><i class="bi bi-send me-2"></i>Изпрати заявка</button>
+                <a class="btn btn-outline-buildo btn-lg rounded-pill" href="#process"><i class="bi bi-diagram-3 me-2"></i>Виж процеса</a>
+              </div>
+
+              <div class="alert alert-success mt-3 d-none" role="alert" id="leadOk">
+                Благодарим! Получихме заявката ви и ще се свържем с вас за оглед.
+              </div>
+              <div class="alert alert-danger mt-3 d-none" role="alert" id="leadErr">
+                В момента не успяхме да изпратим заявката. Моля, обадете се или ни пишете на имейл.
+              </div>
+
+              <div class="tiny mt-3">*Изпращането на формата не е договор. Крайна оферта се изготвя след оглед и точни мерки.</div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <footer class="py-4 footer">
+      <div class="d-flex flex-wrap align-items-center justify-content-between gap-3 border-top pt-4">
+        <div class="d-flex align-items-center gap-2">
+          <img src="https://res.cloudinary.com/dbtskxvx4/image/upload/v1770588823/New_Projectsdfds_dxztd2.png" alt="BUILDO лого" style="width:30px;height:30px;object-fit:contain" />
+          <div>
+            <div class="fw-bold">BUILDO</div>
+            <div class="tiny">Контрол. Сигурност. Качество.</div>
+          </div>
+        </div>
+        <div class="d-flex flex-wrap align-items-center gap-3">
+          <span class="tiny">© <span id="y"></span> BUILDO. Всички права запазени.</span>
+          <a href="#contact">Запази оглед</a>
+        </div>
+      </div>
+    </footer>
+  </main>
+
+  <!-- Bootstrap JS (free) -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+
+  <!-- AOS (free) -->
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+  <script>
+    // Disable/limit animations when user prefers reduced motion
+    const reduceMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    AOS.init({ once: true, duration: reduceMotion ? 0 : 650, easing: 'ease-out', disable: reduceMotion });
+
+    // Formspree submit (prevents redirect and shows message)
+    const form = document.getElementById('leadForm');
+    if(form){
+      form.addEventListener('submit', async (e) => {
+        e.preventDefault();
+        const ok = document.getElementById('leadOk');
+        const err = document.getElementById('leadErr');
+        ok.classList.add('d-none');
+        err.classList.add('d-none');
+
+        const btn = document.getElementById('leadBtn');
+        const prev = btn.innerHTML;
+        btn.disabled = true;
+        btn.innerHTML = '<span class="spinner-border spinner-border-sm me-2" role="status" aria-hidden="true"></span>Изпращане…';
+
+        try{
+          const data = new FormData(form);
+          const res = await fetch(form.action, {
+            method: 'POST',
+            headers: { 'Accept': 'application/json' },
+            body: data
+          });
+          if(res.ok){
+            form.reset();
+            ok.classList.remove('d-none');
+          } else {
+            err.classList.remove('d-none');
+          }
+        } catch(_){
+          err.classList.remove('d-none');
+        } finally {
+          btn.disabled = false;
+          btn.innerHTML = prev;
+        }
+      });
+    }
+    document.getElementById('y').textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
